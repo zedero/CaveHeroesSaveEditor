@@ -1,5 +1,7 @@
 <div>
-  <input type="text" [value]="testData" (keyup)="onInputChange($event)">
+  <input type="text" [value]="testData" (keyup)="onInputChange($event)" #inputSaveString>
+  <button (click)="loadSaveInput()">load</button>
+  <button (click)="clearSaveInput()">clear</button>
 </div>
 
 <div class="fieldset-header">
@@ -8,7 +10,7 @@
 <app-item [itemdata]="premiumData" *ngFor="let premiumData of premiumFields" (changeXmlData)="setXmlData($event)"></app-item>
 
 <!--<div class="fieldset-header">-->
-<!--  Rewards.-->
+  Rewards.
 <!--</div>-->
 <!--<app-item [itemdata]="rewardsData" *ngFor="let rewardsData of rewardsFields" (changeXmlData)="setXmlData($event)"></app-item>-->
 
