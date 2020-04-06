@@ -1,0 +1,23 @@
+<div>
+  <input type="text" [value]="testData" (keyup)="onInputChange($event)">
+</div>
+
+<div class="fieldset-header">
+  Premium rewards.
+</div>
+<app-item [itemdata]="premiumData" *ngFor="let premiumData of premiumFields" (changeXmlData)="setXmlData($event)"></app-item>
+
+<!--<div class="fieldset-header">-->
+<!--  Rewards.-->
+<!--</div>-->
+<!--<app-item [itemdata]="rewardsData" *ngFor="let rewardsData of rewardsFields" (changeXmlData)="setXmlData($event)"></app-item>-->
+
+
+<div>
+  <textarea class="output" #output>{{decodedData}}</textarea>
+</div>
+<div>
+  <button (click)="onClickEncode()">generate savedata</button>
+  <br>
+  <textarea>{{encodedData}}</textarea>
+</div>

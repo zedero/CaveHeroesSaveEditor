@@ -1,0 +1,9 @@
+<div class="input-row" *ngIf="type !== dataEnum.invalid">
+  <label [for]="data.key">{{data.desc}}</label>
+  <input [id]="data.key" type="text" [value]="data.value" (keyup)="onChange($event)" *ngIf="type === dataEnum.text">
+  <input [id]="data.key" type="number" [value]="data.value" (keyup)="onChange($event)" (change)="onChange($event)" *ngIf="type === dataEnum.number">
+  <select [name]="data.key" [id]="data.key" *ngIf="type === dataEnum.boolean" (change)="onChange($event)">
+    <option value="y" [selected]="value === 'y'">true</option>
+    <option value="n" [selected]="value === 'n'">false</option>
+  </select>
+</div>

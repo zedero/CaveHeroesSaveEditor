@@ -1,0 +1,17 @@
+.input-row {
+  display: flex;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid darkgrey;
+  width: 50%;
+
+  label {
+    min-width: 50%;
+    margin-right: 1rem;
+  }
+
+  input {
+    height: 16px;
+    max-height: 16px;
+  }
+}
