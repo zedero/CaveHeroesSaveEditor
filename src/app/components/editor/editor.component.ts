@@ -76,20 +76,28 @@ export class EditorComponent implements OnInit {
           index = i;
         }
       }
-      console.log(this.gameSave.getElementsByTagName(aKey)[index].getAttribute('o'))
+      console.log(this.gameSave.getElementsByTagName(aKey)[index].getAttribute('oo'))
       this.rewardsFields.push(
         {
           key: aKey,
           // value: this.gameSave.getElementsByTagName(aKey)[index].innerHTML,
-          o: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('o'),
-          a: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('a'),
+          l: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('l'), // nr
+          r: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('r'), // nr
+          c: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('c'), // nr
+          o: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('o'), // bool ALWAYS
+          a: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('a'), // bool
           desc: aDesc,
           index,
         }
       );
     };
 
-    addToRewardsField('re', 'Battle Speed', 'i', 'overlord1');
+    addToRewardsField('re', 'Overlord Hunter', 'i', 'overlord1');
+    addToRewardsField('re', 'Overlord Slayer', 'i', 'overlord5');
+    addToRewardsField('re', 'Overlord Destroyer', 'i', 'overlord10');
+    addToRewardsField('re', 'Overlord Exterminator', 'i', 'overlord25');
+    addToRewardsField('re', 'Overlord Champion', 'i', 'overlord50');
+    // console.log(this.rewardsFields)
   }
 
   setXmlData(aData) {

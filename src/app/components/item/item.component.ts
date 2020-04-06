@@ -4,6 +4,7 @@ enum DATA_TYPES {
   boolean = 'boolean',
   number = 'number',
   text = 'text',
+  attributes = 'attributes',
   invalid = 'invalid'
 }
 
@@ -43,7 +44,9 @@ export class ItemComponent implements OnInit {
   }
 
   setDataType(aData) {
-    if (aData === 'n' || aData === 'y') {
+    if (aData === undefined) {
+      this.type = DATA_TYPES.attributes;
+    } else if (aData === 'n' || aData === 'y') {
       this.type = DATA_TYPES.boolean;
     } else if (/^\d+$/.test(aData)) {
       this.type = DATA_TYPES.number;
