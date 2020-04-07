@@ -69,7 +69,14 @@ export class EditorComponent implements OnInit {
   createRewardsFields() {
     this.rewardsFields = [];
 
-    const addToRewardsField = (aKey: string, aDesc: string, aRewardAttr: string,  aReward: string, aHasLinkedElement = false) => {
+    const addToRewardsField = (
+      aKey: string,
+      aDesc: string,
+      aRewardAttr: string,
+      aReward: string,
+      aHasLinkedElement = false,
+      aLinkedElementValue = 0,
+    ) => {
       let index = 0;
       const list = this.gameSave.getElementsByTagName(aKey);
       for (let i = 0; i < list.length; i++) {
@@ -81,7 +88,7 @@ export class EditorComponent implements OnInit {
       let element;
 
       if (aHasLinkedElement) {
-        element = this.gameSave.getElementsByTagName(aReward)[0].innerHTML;
+        element = aLinkedElementValue;
       }
 
       this.rewardsFields.push(
@@ -104,8 +111,10 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Overlord Destroyer', 'i', 'overlord10');
     addToRewardsField('re', 'Overlord Exterminator', 'i', 'overlord25');
     addToRewardsField('re', 'Overlord Champion', 'i', 'overlord50');
-    addToRewardsField('re', 'Academy', 'i', 'academy', true);
-    console.log(this.rewardsFields)
+    addToRewardsField('re', 'Academy', 'i', 'academy', true, 7);
+    addToRewardsField('re', 'Crusher', 'i', 'crusher', true, 6000);
+    addToRewardsField('re', 'Decay', 'i', 'decay');
+    addToRewardsField('re', 'Demon Slaughter', 'i', 'slaughter');
   }
 
   setXmlData(aData) {
@@ -117,7 +126,15 @@ export class EditorComponent implements OnInit {
       this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('o', aData.o);
     }
     if (aData.hasOwnProperty('a')) {
-      this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('a', aData.o);
+      this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('a', aData.a);
+
+      // if it has a linked element and we activate this var, check if the minimum is larger then the current. If so set it.
+      if (aData.a && aData.element) {
+        const name = this.gameSave.getElementsByTagName(aData.key)[aData.index].getAttribute('i');
+        if (this.gameSave.getElementsByTagName(name)[0].innerHTML < aData.element) {
+          this.gameSave.getElementsByTagName(name)[0].innerHTML = aData.element;
+        }
+      }
     }
   }
 
