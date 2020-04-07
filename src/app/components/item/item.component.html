@@ -1,5 +1,5 @@
 <div class="input-row" *ngIf="type !== dataEnum.invalid">
-  <label [for]="data.key">{{data.desc}}</label>
+  <label [for]="data.key">{{data.desc}} <br> <span class="info">{{info}}</span></label>
   <input [id]="data.key" type="text" [value]="data.value" (keyup)="onChange($event)" *ngIf="type === dataEnum.text">
   <input [id]="data.key" type="number" [value]="data.value" (keyup)="onChange($event)" (change)="onChange($event)" *ngIf="type === dataEnum.number">
   <select [name]="data.key" [id]="data.key" *ngIf="type === dataEnum.boolean" (change)="onChange($event)">
@@ -14,6 +14,14 @@
     <div *ngIf="data.o">
       <input name="o" type="checkbox" [checked]="data.o === 'y'" (click)="onAttrChange($event)">
       <label>Quest open</label>
+    </div>
+    <div *ngIf="data.l">
+      <input name="l" type="number" [value]="data.l" (change)="onValChange($event)" (keyup)="onValChange($event)">
+      <label>Level</label>
+    </div>
+    <div *ngIf="data.c">
+      <input name="c" type="number" [value]="data.c" (change)="onValChange($event)" (keyup)="onValChange($event)">
+      <label>Current value</label>
     </div>
 
 <!--    <div *ngIf="data.l"><label>l</label> <input type="checkbox" [checked]="data.l === 'y'"></div>-->

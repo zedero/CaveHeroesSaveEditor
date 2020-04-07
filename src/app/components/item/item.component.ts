@@ -19,6 +19,7 @@ export class ItemComponent implements OnInit {
   public key;
   public value;
   public desc;
+  public info;
   public index;
   public type;
 
@@ -31,6 +32,7 @@ export class ItemComponent implements OnInit {
     this.key = data.key;
     this.value = data.value;
     this.desc = data.desc;
+    this.info = data.info;
     this.index = data.index;
     this.data = data;
     this.setDataType(data.value);
@@ -61,6 +63,11 @@ export class ItemComponent implements OnInit {
   onChange(aEvent) {
     this.data.value = aEvent.target.value;
     this.changeXmlData.emit(this.data);
+  }
+
+  onValChange(aEvent) {
+    this.data[aEvent.target.name] = aEvent.target.value;
+    this.changeXmlAttrData.emit(this.data);
   }
 
   onAttrChange(aEvent) {

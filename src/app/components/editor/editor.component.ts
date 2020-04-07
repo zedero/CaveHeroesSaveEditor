@@ -44,26 +44,27 @@ export class EditorComponent implements OnInit {
 
   createPremiumFields() {
     this.premiumFields = [];
-    const addToPremiumField = (aKey: string, aDesc: string, index = 0) => {
+    const addToPremiumField = (aKey: string, aDesc: string, aInfo: string, index = 0) => {
       this.premiumFields.push(
         {
           key: aKey,
           value: this.gameSave.getElementsByTagName(aKey)[index].innerHTML,
           desc: aDesc,
+          info: aInfo,
           index,
         }
       );
     };
 
-    addToPremiumField('pu1', 'Battle Speed');
-    addToPremiumField('pu2', 'Production 2x');
-    addToPremiumField('pu3', 'Double Prestige');
-    addToPremiumField('pu4', 'Starter Pack');
-    addToPremiumField('pu5', 'Heart Pack');
-    addToPremiumField('pu6', 'Divine Equipment');
-    addToPremiumField('pu7', 'Beta tester');
-    addToPremiumField('r3l6', 'Crystals');
-    addToPremiumField('ct23', 'Chests');
+    addToPremiumField('pu1', '', 'Battle Speed');
+    addToPremiumField('pu2', '', 'Production 2x');
+    addToPremiumField('pu3', '', 'Double Prestige');
+    addToPremiumField('pu4', '', 'Starter Pack');
+    addToPremiumField('pu5', '', 'Heart Pack');
+    addToPremiumField('pu6', '', 'Divine Equipment');
+    addToPremiumField('pu7', '', 'Beta tester');
+    addToPremiumField('r3l6', '', 'Crystals');
+    addToPremiumField('ct23', '', 'Chests');
   }
 
   createRewardsFields() {
@@ -72,6 +73,7 @@ export class EditorComponent implements OnInit {
     const addToRewardsField = (
       aKey: string,
       aDesc: string,
+      aInfo: string,
       aRewardAttr: string,
       aReward: string,
       aHasLinkedElement = false,
@@ -101,20 +103,22 @@ export class EditorComponent implements OnInit {
           a: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('a'), // bool
           element,
           desc: aDesc,
+          info: aInfo,
           index,
         }
       );
     };
 
-    addToRewardsField('re', 'Overlord Hunter', 'i', 'overlord1');
-    addToRewardsField('re', 'Overlord Slayer', 'i', 'overlord5');
-    addToRewardsField('re', 'Overlord Destroyer', 'i', 'overlord10');
-    addToRewardsField('re', 'Overlord Exterminator', 'i', 'overlord25');
-    addToRewardsField('re', 'Overlord Champion', 'i', 'overlord50');
-    addToRewardsField('re', 'Academy', 'i', 'academy', true, 7);
-    addToRewardsField('re', 'Crusher', 'i', 'crusher', true, 6000);
-    addToRewardsField('re', 'Decay', 'i', 'decay');
-    addToRewardsField('re', 'Demon Slaughter', 'i', 'slaughter');
+    addToRewardsField('re', 'Overlord Hunter', '', 'i', 'overlord1');
+    addToRewardsField('re', 'Overlord Slayer', '', 'i', 'overlord5');
+    addToRewardsField('re', 'Overlord Destroyer', '', 'i', 'overlord10');
+    addToRewardsField('re', 'Overlord Exterminator', '', 'i', 'overlord25');
+    addToRewardsField('re', 'Overlord Champion', '', 'i', 'overlord50');
+    addToRewardsField('re', 'Academy', '', 'i', 'academy', true, 7);
+    addToRewardsField('re', 'Crusher', '', 'i', 'crusher', true, 6000);
+    addToRewardsField('re', 'Decay', '', 'i', 'decay');
+    addToRewardsField('re', 'Demon Slaughter', '', 'i', 'slaughter');
+    addToRewardsField('re', 'Demon Fighter', '100/1000/10k/100k/1M/10M', 'i', 'demonf');
   }
 
   setXmlData(aData) {
