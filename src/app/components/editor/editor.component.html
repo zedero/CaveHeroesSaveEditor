@@ -12,7 +12,12 @@
 <div class="fieldset-header">
   Rewards.
 </div>
-<app-item [itemdata]="rewardsData" *ngFor="let rewardsData of rewardsFields" (changeXmlData)="setXmlData($event)"></app-item>
+<app-item [itemdata]="rewardsData"
+          *ngFor="let rewardsData of rewardsFields"
+          (changeXmlData)="setXmlData($event)"
+          (changeXmlAttrData)="setXmlAttrData($event)">
+
+</app-item>
 
 
 <div>

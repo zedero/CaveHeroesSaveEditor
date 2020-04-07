@@ -68,7 +68,8 @@ export class EditorComponent implements OnInit {
 
   createRewardsFields() {
     this.rewardsFields = [];
-    const addToRewardsField = (aKey: string, aDesc: string, aRewardAttr: string,  aReward: string) => {
+
+    const addToRewardsField = (aKey: string, aDesc: string, aRewardAttr: string,  aReward: string, aHasLinkedElement = false) => {
       let index = 0;
       const list = this.gameSave.getElementsByTagName(aKey);
       for (let i = 0; i < list.length; i++) {
@@ -76,16 +77,22 @@ export class EditorComponent implements OnInit {
           index = i;
         }
       }
-      console.log(this.gameSave.getElementsByTagName(aKey)[index].getAttribute('oo'))
+
+      let element;
+
+      if (aHasLinkedElement) {
+        element = this.gameSave.getElementsByTagName(aReward)[0].innerHTML;
+      }
+
       this.rewardsFields.push(
         {
           key: aKey,
-          // value: this.gameSave.getElementsByTagName(aKey)[index].innerHTML,
           l: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('l'), // nr
           r: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('r'), // nr
           c: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('c'), // nr
           o: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('o'), // bool ALWAYS
           a: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('a'), // bool
+          element,
           desc: aDesc,
           index,
         }
@@ -97,11 +104,21 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Overlord Destroyer', 'i', 'overlord10');
     addToRewardsField('re', 'Overlord Exterminator', 'i', 'overlord25');
     addToRewardsField('re', 'Overlord Champion', 'i', 'overlord50');
-    // console.log(this.rewardsFields)
+    addToRewardsField('re', 'Academy', 'i', 'academy', true);
+    console.log(this.rewardsFields)
   }
 
   setXmlData(aData) {
     this.gameSave.getElementsByTagName(aData.key)[aData.index].innerHTML = aData.value;
+  }
+
+  setXmlAttrData(aData) {
+    if (aData.hasOwnProperty('o')) {
+      this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('o', aData.o);
+    }
+    if (aData.hasOwnProperty('a')) {
+      this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('a', aData.o);
+    }
   }
 
   public encode(aSaveData) {
@@ -118,6 +135,7 @@ export class EditorComponent implements OnInit {
 
   public loadSaveInput() {
     this.decode(this.aViewSaveStringElem.nativeElement.value);
+    console.log(this.gameSave)
   }
 
   public clearSaveInput() {

@@ -37,6 +37,7 @@ export class ItemComponent implements OnInit {
   }
 
   @Output() changeXmlData: EventEmitter<any> = new EventEmitter();
+  @Output() changeXmlAttrData: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -60,6 +61,11 @@ export class ItemComponent implements OnInit {
   onChange(aEvent) {
     this.data.value = aEvent.target.value;
     this.changeXmlData.emit(this.data);
+  }
+
+  onAttrChange(aEvent) {
+    this.data[aEvent.target.name] = aEvent.target.checked ? 'y' : 'n';
+    this.changeXmlAttrData.emit(this.data);
   }
 
 }

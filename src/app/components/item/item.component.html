@@ -7,12 +7,18 @@
     <option value="n" [selected]="value === 'n'">false</option>
   </select>
   <div *ngIf="type === dataEnum.attributes">
-    <div *ngIf="data.a"><label>a</label> <input type="checkbox" [checked]="data.a === 'y'"></div>
-    <div *ngIf="data.o"><label>o</label> <input type="checkbox" [checked]="data.o === 'y'"></div>
-<!--    -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-    <div *ngIf="data.l"><label>l</label> <input type="checkbox" [checked]="data.l === 'y'"></div>
-    <div *ngIf="data.c"><label>c</label> <input type="checkbox" [checked]="data.c === 'y'"></div>
-    <div *ngIf="data.r"><label>r</label> <input type="checkbox" [checked]="data.r === 'y'"></div>
+    <div *ngIf="data.a">
+      <input name="a" type="checkbox" [checked]="data.a === 'y'" (click)="onAttrChange($event)">
+      <label>Quest completed</label>
+    </div>
+    <div *ngIf="data.o">
+      <input name="o" type="checkbox" [checked]="data.o === 'y'" (click)="onAttrChange($event)">
+      <label>Quest open</label>
+    </div>
+
+<!--    <div *ngIf="data.l"><label>l</label> <input type="checkbox" [checked]="data.l === 'y'"></div>-->
+<!--    <div *ngIf="data.c"><label>c</label> <input type="checkbox" [checked]="data.c === 'y'"></div>-->
+<!--    <div *ngIf="data.r"><label>r</label> <input type="checkbox" [checked]="data.r === 'y'"></div>-->
   </div>
 </div>
 
