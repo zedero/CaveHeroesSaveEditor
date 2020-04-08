@@ -130,10 +130,44 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Overlord Exterminator', '', 'i', 'overlord25');
     addToRewardsField('re', 'Overlord Champion', '', 'i', 'overlord50');
     addToRewardsField('re', 'Dark Loot', '', 'i', 'darkloot');
+    addToRewardsField('re', 'Blocker', '', 'i', 'blocker');
+    addToRewardsField('re', 'Skilled Workers', '', 'i', 'skilled-workers');
+    addToRewardsField('re', 'Last Shot', '', 'i', 'dying-shot');
+    addToRewardsField('re', 'Oversight', '', 'i', 'oversight');
+    addToRewardsField('re', 'Regeneration', '', 'i', 'regeneration');
+    addToRewardsField('re', 'Armorer', '', 'i', 'armorer');
+    addToRewardsField('re', 'Demon Slaughter', '', 'i', 'slaughter');
+    addToRewardsField('re', 'Meat', '', 'i', 'meet');
+    addToRewardsField('re', 'Teaching', '', 'i', 'teaching');
+    addToRewardsField('re', 'Decay', '', 'i', 'decay');
+    addToRewardsField('re', 'Ephemerality', '', 'i', 'ephemerality');
+    addToRewardsField('re', 'Hellish Blacksmith', '', 'i', 'hellish');
+    addToRewardsField('re', 'Rust', '', 'i', 'rust');
+    addToRewardsField('re', 'Money Makes Money', '', 'i', 'money');
+    // addToRewardsField('re', 'Supreme Hunter', '', 'i', 'money'); // Unknown Key
+    addToRewardsField('re', 'Spellbound Lumberjacks', '', 'i', 'spellbound');
+    addToRewardsField('re', 'Resurrector', '', 'i', 'resurrector');
+    addToRewardsField('re', 'Crowd', '', 'i', 'crowd');
+    addToRewardsField('re', 'Revenge Master', '', 'i', 'revenge');
+    addToRewardsField('re', 'Vampiric Drain', '', 'i', 'vampire');
+    addToRewardsField('re', 'Demonic Productivity', '', 'i', 'demonic'); // Key cculd be off
+    addToRewardsField('re', 'Crusher', '', 'i', 'crusher', true, 6000);
+    addToRewardsField('re', 'Academy', '', 'i', 'academy', true, 7);
+    addToRewardsField('re', 'Mana Rain', '', 'i', 'rain');
+    addToRewardsField('re', 'Mystic Armor', '', 'i', 'marmor');
+    addToRewardsField('re', 'Quickness', '', 'i', 'quickness');
+    addToRewardsField('re', 'Reputation', '', 'i', 'reputation'); // add mana field alter on
+    addToRewardsField('re', 'Scouting', '', 'i', 'scouting');
+    addToRewardsField('re', 'Butcher', '', 'i', 'butcher');
+    addToRewardsField('re', 'Maximum Protection', '', 'i', 'maxprotection');
+    addToRewardsField('re', 'Warlord', '', 'i', 'warlord');
+    addToRewardsField('re', 'Galloping', '', 'i', 'galloping2');
+    // addToRewardsField('re', 'Galloping', '', 'i', 'galloping3');
+    addToRewardsField('re', 'Long Trip', '', 'i', 'longtrip');
+    addToRewardsField('re', 'Magical Excellence', '', 'i', 'excellence');
+    //
     // addToRewardsField('re', 'Academy', '', 'i', 'academy', true, 7);
     // addToRewardsField('re', 'Crusher', '', 'i', 'crusher', true, 6000);
-    // addToRewardsField('re', 'Decay', '', 'i', 'decay');
-    // addToRewardsField('re', 'Demon Slaughter', '', 'i', 'slaughter');
   }
 
   setXmlData(aData) {
