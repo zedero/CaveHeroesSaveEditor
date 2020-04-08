@@ -39,7 +39,6 @@ export class ItemComponent implements OnInit {
     this.data = data;
     this.hasCurrent = !!data.c;
     this.hasLevel = !!data.l;
-    console.log('trigger')
     this.setDataType(data.value);
   }
 

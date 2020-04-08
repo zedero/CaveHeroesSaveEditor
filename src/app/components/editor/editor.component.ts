@@ -132,6 +132,9 @@ export class EditorComponent implements OnInit {
     if (aData.hasOwnProperty('c')) {
       this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('c', aData.c);
     }
+    if (aData.hasOwnProperty('l')) {
+      this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('l', aData.l);
+    }
     if (aData.hasOwnProperty('a')) {
       this.gameSave.getElementsByTagName(aData.key)[aData.index].setAttribute('a', aData.a);
 
