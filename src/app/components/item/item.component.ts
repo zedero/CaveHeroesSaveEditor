@@ -22,6 +22,8 @@ export class ItemComponent implements OnInit {
   public info;
   public index;
   public type;
+  public hasCurrent = false;
+  public hasLevel = false;
 
   public data;
 
@@ -35,6 +37,9 @@ export class ItemComponent implements OnInit {
     this.info = data.info;
     this.index = data.index;
     this.data = data;
+    this.hasCurrent = !!data.c;
+    this.hasLevel = !!data.l;
+    console.log('trigger')
     this.setDataType(data.value);
   }
 
@@ -66,6 +71,9 @@ export class ItemComponent implements OnInit {
   }
 
   onValChange(aEvent) {
+    if (!aEvent.target.value) {
+      aEvent.target.value = 0;
+    }
     this.data[aEvent.target.name] = aEvent.target.value;
     this.changeXmlAttrData.emit(this.data);
   }

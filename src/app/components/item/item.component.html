@@ -15,11 +15,11 @@
       <input name="o" type="checkbox" [checked]="data.o === 'y'" (click)="onAttrChange($event)">
       <label>Quest open</label>
     </div>
-    <div *ngIf="data.l">
+    <div *ngIf="hasLevel">
       <input name="l" type="number" [value]="data.l" (change)="onValChange($event)" (keyup)="onValChange($event)">
       <label>Level</label>
     </div>
-    <div *ngIf="data.c">
+    <div *ngIf="hasCurrent">
       <input name="c" type="number" [value]="data.c" (change)="onValChange($event)" (keyup)="onValChange($event)">
       <label>Current value</label>
     </div>
