@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, OnInit, Output} from '@angular/core';
 
 enum DATA_TYPES {
   boolean = 'boolean',
@@ -7,6 +7,7 @@ enum DATA_TYPES {
   attributes = 'attributes',
   invalid = 'invalid'
 }
+
 
 @Component({
   selector: 'app-item',
@@ -28,6 +29,8 @@ export class ItemComponent implements OnInit {
   public data;
 
   public dataEnum = DATA_TYPES;
+
+  @HostBinding('class') class = 'col-xs-12 col-sm-6 col-lg-4';
 
   @Input()
   set itemdata(data: any) {

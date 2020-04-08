@@ -1,32 +1,36 @@
-<div class="input-row" *ngIf="type !== dataEnum.invalid">
-  <label [for]="data.key">{{data.desc}} <br> <span class="info">{{info}}</span></label>
-  <input [id]="data.key" type="text" [value]="data.value" (keyup)="onChange($event)" *ngIf="type === dataEnum.text">
-  <input [id]="data.key" type="number" [value]="data.value" (keyup)="onChange($event)" (change)="onChange($event)" *ngIf="type === dataEnum.number">
-  <select [name]="data.key" [id]="data.key" *ngIf="type === dataEnum.boolean" (change)="onChange($event)">
-    <option value="y" [selected]="value === 'y'">true</option>
-    <option value="n" [selected]="value === 'n'">false</option>
-  </select>
-  <div *ngIf="type === dataEnum.attributes">
-    <div *ngIf="data.a">
-      <input name="a" type="checkbox" [checked]="data.a === 'y'" (click)="onAttrChange($event)">
-      <label>Quest completed</label>
-    </div>
-    <div *ngIf="data.o">
-      <input name="o" type="checkbox" [checked]="data.o === 'y'" (click)="onAttrChange($event)">
-      <label>Quest open</label>
-    </div>
-    <div *ngIf="hasLevel">
-      <input name="l" type="number" [value]="data.l" (change)="onValChange($event)" (keyup)="onValChange($event)">
-      <label>Level</label>
-    </div>
-    <div *ngIf="hasCurrent">
-      <input name="c" type="number" [value]="data.c" (change)="onValChange($event)" (keyup)="onValChange($event)">
-      <label>Current value</label>
-    </div>
 
-<!--    <div *ngIf="data.l"><label>l</label> <input type="checkbox" [checked]="data.l === 'y'"></div>-->
-<!--    <div *ngIf="data.c"><label>c</label> <input type="checkbox" [checked]="data.c === 'y'"></div>-->
-<!--    <div *ngIf="data.r"><label>r</label> <input type="checkbox" [checked]="data.r === 'y'"></div>-->
+<div class="box">
+  <div class="input-row" *ngIf="type !== dataEnum.invalid">
+    <label [for]="data.key">{{data.desc}} <br> <span class="info">{{info}}</span></label>
+    <div class="input-fields">
+      <input [id]="data.key" type="text" [value]="data.value" (keyup)="onChange($event)" *ngIf="type === dataEnum.text">
+      <input [id]="data.key" type="number" [value]="data.value" (keyup)="onChange($event)" (change)="onChange($event)" *ngIf="type === dataEnum.number">
+      <select [name]="data.key" [id]="data.key" *ngIf="type === dataEnum.boolean" (change)="onChange($event)">
+        <option value="y" [selected]="value === 'y'">true</option>
+        <option value="n" [selected]="value === 'n'">false</option>
+      </select>
+      <div *ngIf="type === dataEnum.attributes">
+        <div *ngIf="data.a">
+          <input name="a" type="checkbox" [checked]="data.a === 'y'" (click)="onAttrChange($event)">
+          <label>Quest completed</label>
+        </div>
+        <div *ngIf="data.o">
+          <input name="o" type="checkbox" [checked]="data.o === 'y'" (click)="onAttrChange($event)">
+          <label>Quest open</label>
+        </div>
+        <div *ngIf="hasLevel">
+          <label>Level</label>
+          <input name="l" type="number" [value]="data.l" (change)="onValChange($event)" (keyup)="onValChange($event)">
+        </div>
+        <div *ngIf="hasCurrent">
+          <label>Current value</label>
+          <input name="c" type="number" [value]="data.c" (change)="onValChange($event)" (keyup)="onValChange($event)">
+        </div>
+
+    <!--    <div *ngIf="data.l"><label>l</label> <input type="checkbox" [checked]="data.l === 'y'"></div>-->
+    <!--    <div *ngIf="data.c"><label>c</label> <input type="checkbox" [checked]="data.c === 'y'"></div>-->
+    <!--    <div *ngIf="data.r"><label>r</label> <input type="checkbox" [checked]="data.r === 'y'"></div>-->
+      </div>
+    </div>
   </div>
 </div>
-

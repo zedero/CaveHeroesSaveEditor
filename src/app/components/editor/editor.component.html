@@ -4,20 +4,24 @@
   <button (click)="clearSaveInput()">clear</button>
 </div>
 
+
 <div class="fieldset-header">
   Premium rewards.
 </div>
-<app-item [itemdata]="premiumData" *ngFor="let premiumData of premiumFields" (changeXmlData)="setXmlData($event)"></app-item>
-
+<div class="row">
+  <app-item [itemdata]="premiumData" *ngFor="let premiumData of premiumFields" (changeXmlData)="setXmlData($event)"></app-item>
+</div>
 <div class="fieldset-header">
   Rewards.
 </div>
-<app-item [itemdata]="rewardsData"
-          *ngFor="let rewardsData of rewardsFields"
-          (changeXmlData)="setXmlData($event)"
-          (changeXmlAttrData)="setXmlAttrData($event)">
-
-</app-item>
+<div class="row">
+  <app-item [itemdata]="rewardsData"
+            *ngFor="let rewardsData of rewardsFields"
+            (changeXmlData)="setXmlData($event)"
+            (changeXmlAttrData)="setXmlAttrData($event)"
+  >
+  </app-item>
+</div>
 
 
 <div>

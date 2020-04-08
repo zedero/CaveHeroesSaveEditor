@@ -3,8 +3,16 @@ textarea.output {
   //height: 80vh;
   height: 250px;
   resize: none;
+  //display: none;
 }
 
 textarea {
   width: 100%;
+}
+
+.fieldset-header {
+  margin-top: 1rem;
+  margin-bottom: .7rem;
+  font-size: 1.6rem;
+  font-weight: bold;
 }

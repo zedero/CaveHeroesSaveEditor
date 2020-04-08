@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'flexboxgrid.css';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 1.3rem;
+}
