@@ -11,6 +11,14 @@
 <div class="row">
   <app-item [itemdata]="premiumData" *ngFor="let premiumData of premiumFields" (changeXmlData)="setXmlData($event)"></app-item>
 </div>
+
+<div class="fieldset-header">
+  Overseers
+</div>
+<div class="row">
+  <app-item [itemdata]="managerData" *ngFor="let managerData of managerFields" (changeXmlData)="setXmlData($event)" (changeXmlAttrData)="setXmlAttrData($event)"></app-item>
+</div>
+
 <div class="fieldset-header">
   Rewards.
 </div>

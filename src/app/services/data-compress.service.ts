@@ -14,6 +14,7 @@ export class DataCompressService {
   }
 
   compress(aData) {
+    console.log(aData);
     return btoa(
       zlib.deflate(aData, { to: 'string' })
     );

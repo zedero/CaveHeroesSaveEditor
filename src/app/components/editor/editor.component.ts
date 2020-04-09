@@ -14,6 +14,7 @@ export class EditorComponent implements OnInit {
   public gameSave: any;
   public premiumFields = [];
   public rewardsFields = [];
+  public managerFields = [];
 
   @ViewChild('output') decodedText;
   @ViewChild('inputSaveString') aViewSaveStringElem;
@@ -36,9 +37,10 @@ export class EditorComponent implements OnInit {
 
       const parser = new DOMParser();
       this.gameSave = parser.parseFromString(result, 'text/xml');
-
+// console.log(this.gameSave)
       this.createPremiumFields();
       this.createRewardsFields();
+      this.createManagerFields();
     }
   }
 
@@ -169,6 +171,64 @@ export class EditorComponent implements OnInit {
     // addToRewardsField('re', 'Academy', '', 'i', 'academy', true, 7);
     // addToRewardsField('re', 'Crusher', '', 'i', 'crusher', true, 6000);
   }
+
+  createManagerFields() {
+    this.managerFields = [];
+
+    const addToManagerField = (aKey: string, aDesc: string, aInfo: string, aRewardAttr: string, aReward: string ) => {
+      let index = 0;
+      const list = this.gameSave.getElementsByTagName(aKey);
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].getAttribute(aRewardAttr) === aReward) {
+          index = i;
+        }
+      }
+
+      this.managerFields.push(
+        {
+          key: aKey,
+          o: this.gameSave.getElementsByTagName(aKey)[index].getAttribute('o'),
+          desc: aDesc,
+          info: aInfo,
+          index,
+        }
+      );
+    };
+
+    const addOverseerToManagerField = (aKey: string, aDesc: string, aInfo: string, aRewardAttr: string, aReward: string ) => {
+      let index = 0;
+      const list = this.gameSave.getElementsByTagName(aKey);
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].getAttribute(aRewardAttr) === aReward) {
+          index = i;
+        }
+      }
+
+      this.managerFields.push(
+        {
+          key: aKey,
+          value: this.gameSave.getElementsByTagName(aKey)[index].innerHTML,
+          desc: aDesc,
+          info: aInfo,
+          index,
+        }
+      );
+    };
+
+
+    addToManagerField('ma', 'Storage Overseer', '', 'i', '0');
+    addToManagerField('ma', 'Well Overseer', '', 'i', '1');
+    addToManagerField('ma', 'Housing Overseer', '', 'i', '2');
+    addToManagerField('ma', 'Arsenal Overseer', '', 'i', '3');
+    addToManagerField('ma', 'Workers Overseer', '', 'i', '4');
+    addToManagerField('ma', 'Mana Overseer', '', 'i', '5');
+    addToManagerField('ma', 'Gold & Gems Overseer', '', 'i', '6');
+    addToManagerField('ma', 'Furnace Overseer', '', 'i', '7');
+    addToManagerField('ma', 'Spells Overseer', '', 'i', '8');
+
+    addOverseerToManagerField('e', 'Overseers', '', 'i', 'WorkerOverseer');
+  }
+
 
   setXmlData(aData) {
     this.gameSave.getElementsByTagName(aData.key)[aData.index].innerHTML = aData.value;
