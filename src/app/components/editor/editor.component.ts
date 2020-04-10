@@ -125,6 +125,7 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Unspikeable', '13/?/?/?/?/?', 'i', 'devastators');
     addToRewardsField('re', 'Magic Science', '?/?/?/?/?', 'i', 'science', true, 36);
     addToRewardsField('re', 'Unserviceable', '166/?/?/?', 'i', 'unserviceable');
+    addToRewardsField('re', 'Warscience', '26/?/?/?', 'i', 'warscience');
     // other
     addToRewardsField('re', 'Overlord Hunter', '', 'i', 'overlord1');
     addToRewardsField('re', 'Overlord Slayer', '', 'i', 'overlord5');
@@ -163,13 +164,22 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Butcher', '', 'i', 'butcher');
     addToRewardsField('re', 'Maximum Protection', '', 'i', 'maxprotection');
     addToRewardsField('re', 'Warlord', '', 'i', 'warlord');
-    addToRewardsField('re', 'Galloping', '', 'i', 'galloping2');
-    // addToRewardsField('re', 'Galloping', '', 'i', 'galloping3');
+    // GALLOPING UNKNOWN KEY
     addToRewardsField('re', 'Long Trip', '', 'i', 'longtrip');
     addToRewardsField('re', 'Magical Excellence', '', 'i', 'excellence');
-    //
-    // addToRewardsField('re', 'Academy', '', 'i', 'academy', true, 7);
-    // addToRewardsField('re', 'Crusher', '', 'i', 'crusher', true, 6000);
+    addToRewardsField('re', 'Teaching 2', '', 'i', 'teaching2');
+    addToRewardsField('re', 'Wraiths Adept', '', 'i', 'wraith');
+    addToRewardsField('re', 'Wraiths Adept', '', 'i', 'wraith');
+    addToRewardsField('re', 'Galloping 2', '', 'i', 'galloping2');
+    addToRewardsField('re', 'Cannon Fodder', '', 'i', 'fodder');
+    addToRewardsField('re', 'Overseerment', '', 'i', 'overseerment');
+    addToRewardsField('re', 'Fully Blunt', '', 'i', 'blunt');
+    addToRewardsField('re', 'Defiance I', '', 'i', 'defiance1');
+    addToRewardsField('re', 'Defiance II', '', 'i', 'defiance2');
+    addToRewardsField('re', 'Immolation', '', 'i', 'immolation');
+
+
+    // addToRewardsField('re', 'Galloping', '', 'i', 'galloping3');
   }
 
   createManagerFields() {
@@ -226,7 +236,7 @@ export class EditorComponent implements OnInit {
     addToManagerField('ma', 'Furnace Overseer', '', 'i', '7');
     addToManagerField('ma', 'Spells Overseer', '', 'i', '8');
 
-    addOverseerToManagerField('e', 'Overseers', '', 'i', 'WorkerOverseer');
+    // addOverseerToManagerField('e', 'Overseers', '', 'i', 'WorkerOverseer'); // does not work. Resets. Change other field numbers aswel!
   }
 
 
