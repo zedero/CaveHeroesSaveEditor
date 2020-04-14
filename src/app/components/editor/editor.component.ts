@@ -44,6 +44,7 @@ export class EditorComponent implements OnInit {
     }
   }
 
+
   createPremiumFields() {
     this.premiumFields = [];
     const addToPremiumField = (aKey: string, aDesc: string, aInfo: string, index = 0) => {
@@ -58,6 +59,7 @@ export class EditorComponent implements OnInit {
       );
     };
 
+    addToPremiumField('speed', 'Game Speed', '');
     addToPremiumField('pu1', 'Battle Speed', '');
     addToPremiumField('pu2', 'Production 2x', '');
     addToPremiumField('pu3',  'Double Prestige', '');
@@ -168,7 +170,6 @@ export class EditorComponent implements OnInit {
     addToRewardsField('re', 'Long Trip', '', 'i', 'longtrip');
     addToRewardsField('re', 'Magical Excellence', '', 'i', 'excellence');
     addToRewardsField('re', 'Teaching 2', '', 'i', 'teaching2');
-    addToRewardsField('re', 'Wraiths Adept', '', 'i', 'wraith');
     addToRewardsField('re', 'Wraiths Adept', '', 'i', 'wraith');
     addToRewardsField('re', 'Galloping 2', '', 'i', 'galloping2');
     addToRewardsField('re', 'Cannon Fodder', '', 'i', 'fodder');
